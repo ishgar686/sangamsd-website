@@ -170,7 +170,18 @@ function CultureShow() {
 }
 
 function Board() {
-  return <Page><Intro eyebrow="Executive Board" title="Meet the people behind Sangam." body="Our board plans the events, partnerships, performances, and small details that bring our community together." accent="teal" />
+  return <Page><section className="board-hero">
+    <div className="board-hero-copy">
+      <p className="eyebrow light"><span /> Executive Board</p>
+      <h1>Built by students.<br /><em>Made together.</em></h1>
+      <p>Meet the people planning the events, performances, partnerships, and small details that bring Sangam to life.</p>
+    </div>
+    <div className="board-hero-aside" aria-hidden="true">
+      <span>Student-led</span>
+      <strong>16</strong>
+      <small>people behind<br />the community</small>
+    </div>
+  </section>
     <section className="board-section section-pad"><div className="section-heading"><div><p className="eyebrow">Published board portraits</p><h2>2023—2024</h2></div><p>These portraits come from SangamSD’s 2023–2024 board page and are ready to be replaced when the incoming board is installed.</p></div><div className="board-grid">{board.map(({ name, photo }) => <article key={name}><div className="board-portrait"><img src={photo} alt={name} /></div><span>Executive Board</span><h3>{name}</h3></article>)}</div></section>
   </Page>
 }
