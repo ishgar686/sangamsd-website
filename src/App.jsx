@@ -16,6 +16,12 @@ const events = [
   { month: 'TBA', day: '—', title: 'Community Socials', type: 'Community', location: 'Across UC San Diego', color: 'teal' },
 ]
 
+const pastEvents = [
+  { title: 'Culture Show', type: 'Performance', photo: '/media/culture-show-performance.jpg', description: 'A full-scale celebration shaped by South Asian dance, music, storytelling, and the students who bring it all to the stage.' },
+  { title: 'Raas Garba', type: 'Tradition', photo: '/media/sangam-community.jpg', description: 'An evening of music and movement where experienced dancers and first-timers share the same circle.' },
+  { title: 'Community Gatherings', type: 'Belonging', photo: '/media/about-community.jpg', description: 'The socials, celebrations, and everyday moments that turn new faces across campus into familiar ones.' },
+]
+
 const board = [
   { name: 'Insiyah Merchant', photo: '/board/insiyah.jpg' },
   { name: 'Natasha Bisarya', photo: '/board/natasha.jpg' },
