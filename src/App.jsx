@@ -229,7 +229,10 @@ function Partners() {
 }
 
 function Join() {
-  return <Page><section className="join-hero"><div><p className="eyebrow">Join Sangam</p><h1>Come as you are.<br /><em>Leave with community.</em></h1><p>Membership is your invitation to a year of events, friendships, performance, and shared culture.</p></div></section>
+  return <Page><section className="join-hero-v2">
+      <div className="join-hero-copy"><p className="eyebrow"><span /> Join Sangam</p><h1>There’s more than<br />one way <em>in.</em></h1><p>Start with an event, step onto the Culture Show stage, or simply come say hello. Sangam is something you can enter at your own pace.</p><div className="button-row"><Link className="button" to="/events">Find an event <ArrowRight size={18} /></Link><a className="text-link" href="mailto:hello@sangamsd.com">Ask us anything <ChevronRight size={17} /></a></div></div>
+      <div className="join-hero-image"><img src="/media/sangam-community.jpg" alt="SangamSD students spending time together" /><span>Come as you are · UC San Diego</span></div>
+    </section>
     <section className="join-grid section-pad"><div><p className="eyebrow">Membership means</p><h2>More than a name on a list.</h2></div><div className="benefits"><div><strong>01</strong><span>More ways to take part in Sangam events</span></div><div><strong>02</strong><span>Opportunities to get involved with Culture Show</span></div><div><strong>03</strong><span>Community updates and social gatherings</span></div><div><strong>04</strong><span>A community across UCSD and beyond</span></div></div></section>
     <section className="signup section-pad"><div><p className="eyebrow light">Ready?</p><h2>Membership opens at the start of the academic year.</h2><p>Until then, follow SangamSD for event announcements and membership updates.</p></div><div className="button-row"><a className="button button-ivory" href="https://www.instagram.com/sangamsd">Follow on Instagram <AtSign size={18} /></a><a className="text-link light-link" href="mailto:hello@sangamsd.com">Ask a question <ArrowRight size={17} /></a></div></section>
   </Page>
