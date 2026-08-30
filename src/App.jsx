@@ -1,0 +1,224 @@
+import { useEffect, useState } from 'react'
+import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
+import { ArrowRight, AtSign, ChevronRight, Clock, MapPin, Menu, X } from 'lucide-react'
+
+const heroImage = '/media/sangam-community.jpg'
+const communityVideo = '/media/sangam-highlights.mp4'
+
+// Add confirmed partner names, logos, and links here as they are received.
+const partners = []
+
+const partnerGmailDraft = 'https://mail.google.com/mail/?view=cm&fs=1&to=sangamatucsd@gmail.com&su=Partnering%20with%20SangamSD&body=Hi%20SangamSD%2C%0A%0AI%27m%20interested%20in%20exploring%20a%20partnership.%0A%0AOur%20organization%3A%20%0A%0AAn%20idea%20we%27d%20like%20to%20discuss%3A%20%0A%0AThank%20you!'
+
+const events = [
+  { month: 'FALL', day: '—', title: 'Raas Garba', type: 'Culture', location: 'Date and venue coming soon', color: 'saffron' },
+  { month: 'TBA', day: '—', title: 'Bollywood Bash', type: 'Celebration', location: 'Details coming soon', color: 'rani' },
+  { month: 'TBA', day: '—', title: 'Community Socials', type: 'Community', location: 'Across UC San Diego', color: 'teal' },
+]
+
+const board = [
+  { name: 'Insiyah Merchant', photo: '/board/insiyah.jpg' },
+  { name: 'Natasha Bisarya', photo: '/board/natasha.jpg' },
+  { name: 'Abirami Krishnan', photo: '/board/abi.jpg' },
+  { name: 'Nishtha Bhakta', photo: '/board/nishtha.jpg' },
+  { name: 'Athira Rajiv', photo: '/board/athira.jpg' },
+  { name: 'Eshan Alomari', photo: '/board/eshan.jpg' },
+  { name: 'Pranav Babarjung', photo: '/board/pranav-b.jpg' },
+  { name: 'Risha Sharma', photo: '/board/risha.jpg' },
+  { name: 'Sukhman Virk', photo: '/board/sukhman.jpg' },
+  { name: 'Pranav Nair', photo: '/board/pranav-n.jpg' },
+  { name: 'Risab Sankar', photo: '/board/risab.jpg' },
+  { name: 'Shivani Kedila', photo: '/board/shivani.jpg' },
+  { name: 'Khushi Kumra', photo: '/board/khushi.jpg' },
+  { name: 'Akshara Kuduvalli', photo: '/board/akshara.jpg' },
+  { name: 'Gautam Gupta', photo: '/board/gautam.jpg' },
+  { name: 'Shreyas Pasumarthi', photo: '/board/shreyas.jpg' },
+]
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  return null
+}
+
+function Header() {
+  const [open, setOpen] = useState(false)
+  const links = [['About', '/about'], ['Events', '/events'], ['Culture Show', '/culture-show'], ['Partners', '/partners'], ['Board', '/board']]
+  return <header className="site-header">
+    <Link className="brand" to="/" onClick={() => setOpen(false)} aria-label="SangamSD home">
+      <img className="brand-logo" src="/brand/sangamsd-logo.png" alt="SangamSD" />
+    </Link>
+    <button className="menu-button" onClick={() => setOpen(!open)} aria-label="Toggle navigation">{open ? <X /> : <Menu />}</button>
+    <nav className={open ? 'nav-open' : ''}>
+      {links.map(([label, href]) => <NavLink key={href} to={href} onClick={() => setOpen(false)}>{label}</NavLink>)}
+      <Link className="button button-small" to="/join" onClick={() => setOpen(false)}>Join Sangam <ArrowRight size={16} /></Link>
+    </nav>
+  </header>
+}
+
+function Footer() {
+  return <footer className="site-footer-compact">
+    <div className="footer-bottom">
+      <Link className="brand brand-light" to="/"><img className="brand-logo" src="/brand/sangamsd-logo.png" alt="SangamSD" /></Link>
+      <div className="footer-links"><Link to="/about">About</Link><Link to="/events">Events</Link><Link to="/partners">Partners</Link><Link to="/board">Board</Link><a href="mailto:hello@sangamsd.com">Contact</a></div>
+      <div className="social"><a href="https://www.instagram.com/sangamsd" aria-label="Instagram"><AtSign size={19} /></a><span>© 2026 SangamSD</span></div>
+    </div>
+  </footer>
+}
+
+function Page({ children }) { return <><Header /><main>{children}</main><Footer /></> }
+
+function Home() {
+  return <Page>
+    <section className="hero">
+      <div className="hero-copy reveal">
+        <p className="eyebrow"><span /> South Asian culture at UC San Diego</p>
+        <h1>Culture that<br /><em>moves</em> with us.</h1>
+        <p className="hero-intro">South Asian culture, community, and celebration—made by students, open to everyone.</p>
+        <div className="button-row"><Link className="button" to="/events">Upcoming events <ArrowRight size={18} /></Link><Link className="text-link" to="/about">Explore Sangam <ChevronRight size={18} /></Link></div>
+      </div>
+      <div className="hero-visual reveal delay">
+        <div className="color-orbit orbit-one" /><div className="color-orbit orbit-two" />
+        <div className="hero-frame"><img src={heroImage} alt="SangamSD Culture Show performance" /><span className="image-label">Culture Show · UC San Diego</span></div>
+        <div className="hero-stamp"><span>संगम</span><small>Coming together</small></div>
+      </div>
+    </section>
+
+    <section className="ticker" aria-label="Sangam values"><span>Culture</span><i>✦</i><span>Community</span><i>✦</i><span>Celebration</span><i>✦</i><span>Belonging</span></section>
+
+    <section className="next-event section-pad">
+      <div className="section-heading"><div><p className="eyebrow">Upcoming events at Sangam</p><h2>Your next favorite<br />memory starts here.</h2></div><Link className="text-link" to="/events">View all events <ArrowRight size={17} /></Link></div>
+      <article className="featured-event">
+        <div className="event-date"><span className="date-label">Date</span><strong>Fall</strong><span>Date TBA</span></div>
+        <div className="event-info"><span className="event-tag">Signature tradition</span><h3>Raas Garba</h3><p>Music, movement, and a packed ballroom. Whether you know every step or none at all, there’s room in the circle.</p><div className="event-meta"><span><Clock size={17} /> Time TBA</span><span><MapPin size={17} /> Venue TBA</span></div></div>
+        <Link className="round-link" to="/events" aria-label="Raas Garba details"><ArrowRight /></Link>
+      </article>
+    </section>
+
+    <section className="partners-home section-pad">
+      <div className="partners-copy"><p className="eyebrow light">Our partners</p><h2>Support our<br />celebrations.</h2><p>Sangam’s events and traditions grow through the generosity of businesses, alumni, families, and community supporters.</p><Link className="button button-ivory" to="/partners">Meet our partners <ArrowRight size={18} /></Link></div>
+      <div className="partner-wall">
+        {partners.length ? partners.slice(0, 6).map((partner) => <a href={partner.url} key={partner.name}><img src={partner.logo} alt={partner.name} /></a>) : <div className="partner-empty"><span>2026—27 partner roster</span><strong>Coming soon</strong><p>Confirmed names and logos will be recognized here.</p></div>}
+      </div>
+    </section>
+
+    <section className="experience section-pad">
+      <div className="section-heading"><div><p className="eyebrow">The Sangam experience</p><h2>There’s a place<br />for you in it.</h2></div><p>From your first social to the Culture Show stage, Sangam is something you experience—not just something you join.</p></div>
+      <div className="photo-story">
+        <div className="photo-main"><video autoPlay muted loop playsInline poster={heroImage} aria-label="Highlights from SangamSD events"><source src={communityVideo} type="video/mp4" /></video></div>
+        <div className="photo-copy"><span className="big-number">ALL</span><p>backgrounds, experiences, and levels of familiarity are welcome in the circle.</p><Link className="text-link" to="/join">Join the community <ArrowRight size={17} /></Link></div>
+        <div className="pattern-card"><div className="rangoli" /><span>Everyone is welcome.</span></div>
+      </div>
+    </section>
+
+    <section className="culture-feature section-pad">
+      <div className="culture-art"><img src="/media/culture-show-performance.jpg" alt="SangamSD dancers performing together on stage" /><span>AN ANNUAL TRADITION</span></div>
+      <div className="culture-copy"><p className="eyebrow light">Our signature production</p><h2>Culture Show</h2><p>One stage. Dozens of performers. A joyful tour through the sounds, movement, and stories of South Asia.</p><Link className="button button-ivory" to="/culture-show">Discover Culture Show <ArrowRight size={18} /></Link></div>
+    </section>
+
+    <section className="legacy section-pad">
+      <p className="eyebrow">Since 1986</p><blockquote>“What began as friends sharing culture on the grass at UCSD became a community bigger than we ever imagined.”</blockquote><p className="quote-credit">— Aasha Sachdev, founding member</p>
+      <Link className="text-link" to="/about">Read our story <ArrowRight size={17} /></Link>
+    </section>
+  </Page>
+}
+
+function Intro({ eyebrow, title, body, accent = 'saffron' }) {
+  return <section className={`page-intro accent-${accent}`}><div><p className="eyebrow">{eyebrow}</p><h1>{title}</h1></div><p>{body}</p></section>
+}
+
+function About() {
+  return <Page>
+    <section className="about-mission-hero">
+      <div className="about-mission-copy"><span className="mission-label">Our mission</span><blockquote>To promote South Asian cultural awareness and education at UC San Diego and beyond, while <em>building an inclusive community</em> through culture, service, and shared experiences.</blockquote></div>
+      <div className="about-mission-image"><img src="/media/about-community.jpg" alt="SangamSD students performing together on stage" /><span>Culture in motion · UC San Diego</span></div>
+    </section>
+
+    <section className="about-purpose section-pad">
+      <div className="about-purpose-heading"><p className="eyebrow">What we make room for</p><h2>More ways to<br />belong.</h2></div>
+      <div className="about-lines">
+        <article><span>01</span><h3>Experience culture</h3><p>Music, dance, food, traditions, and stories—shared in ways that feel alive today.</p></article>
+        <article><span>02</span><h3>Find community</h3><p>Socials, service, study breaks, and everyday moments that turn new faces into friends.</p></article>
+        <article><span>03</span><h3>Create together</h3><p>Student-led events and performances where everyone can contribute, on stage or behind the scenes.</p></article>
+      </div>
+    </section>
+
+    <section className="about-welcome section-pad">
+      <div><p className="eyebrow light">Everyone is welcome</p><h2>You don’t need to know every tradition to find your place here.</h2></div>
+      <div className="about-welcome-copy"><p>Whether South Asian culture is part of your identity or something you’re discovering, curiosity is enough. Come to an event, bring a friend, and join in at your own pace.</p><div className="button-row"><Link className="button button-ivory" to="/join">Join Sangam <ArrowRight size={18} /></Link><Link className="text-link light-link" to="/events">Explore events <ArrowRight size={17} /></Link></div></div>
+      <div className="about-legacy"><strong>Since 1986</strong><span>Student-led at UC San Diego, carried forward by each new generation.</span></div>
+    </section>
+  </Page>
+}
+
+function Events() {
+  return <Page><section className="events-hero section-pad"><div><p className="eyebrow"><span /> Events at Sangam</p><h1>Show up.<br /><em>Join in.</em></h1></div><p>Signature traditions, performances, and low-key gatherings—each one is another way into the community.</p></section>
+    <section className="events-list section-pad"><div className="section-heading"><div><p className="eyebrow">Coming up</p><h2>On the horizon</h2></div><p>The 2026–2027 calendar will be added as dates, times, and venues are confirmed.</p></div>{events.map((e) => <article className="event-row" key={e.title}><span className={`event-color ${e.color}`} /><div className="mini-date"><span className="mini-date-label">Date</span><strong>{e.month === 'FALL' ? 'Fall' : 'TBA'}</strong></div><div><span className="event-tag">{e.type}</span><h3>{e.title}</h3></div><p><MapPin size={16} /> {e.location}</p><a className="round-link" href="https://www.instagram.com/sangamsd" aria-label={`Follow for ${e.title} details`}><ArrowRight /></a></article>)}</section>
+    <section className="event-note section-pad"><a className="instagram-visual" href="https://www.instagram.com/sangamsd" aria-label="Visit SangamSD on Instagram"><img src="/brand/sangamsd-instagram-avatar.jpg" alt="SangamSD Instagram profile logo" /><span>@sangamsd</span></a><div><p className="eyebrow light">Never miss the next one</p><h2>Announcements happen first on Instagram.</h2><a className="button button-ivory" href="https://www.instagram.com/sangamsd">Follow @sangamsd <ArrowRight size={18} /></a></div></section>
+  </Page>
+}
+
+function CultureShow() {
+  return <Page><section className="show-hero-cinematic"><video autoPlay muted loop playsInline poster={heroImage} aria-label="Highlights from SangamSD performances"><source src={communityVideo} type="video/mp4" /></video><div className="show-hero-overlay"><p className="eyebrow light">SangamSD presents</p><h1>Culture <em>Show</em></h1><p>Our annual celebration of South Asian performance, storytelling, and community.</p><span>AN ANNUAL TRADITION</span></div></section>
+
+    <section className="show-intro-v2 section-pad"><div><p className="eyebrow">What it is</p><h2>One stage.<br />A whole community.</h2></div><div><p>Each year, students from across campus come together to build a full-scale production shaped by the many sounds, movements, and stories of South Asia and its diaspora.</p><p>You don’t need years of experience—or any particular background—to take part. Perform, help create the show, or come celebrate from the audience.</p></div></section>
+
+    <section className="show-program section-pad"><div className="section-heading"><div><p className="eyebrow">What you’ll experience</p><h2>Every act brings<br />something different.</h2></div><p>The final lineup changes each year, making every Culture Show its own moment.</p></div><div className="show-program-lines"><article><span>01</span><h3>Dance</h3><p>Bollywood, Bharatanatyam, South Indian, Raas, Bhangra, and more.</p></article><article><span>02</span><h3>Music</h3><p>Vocal, instrumental, Hindustani, Carnatic, and a cappella performances.</p></article><article><span>03</span><h3>Stories</h3><p>Student-led skits, comedy, and creative moments that connect the show.</p></article></div></section>
+
+    <section className="show-season section-pad"><div className="season-marker"><span>Current season</span><strong>2026—27</strong></div><div className="season-copy"><p className="eyebrow light">The next show</p><h2>Details are on the way.</h2><p>Dates, participation sign-ups, and audience information will be shared as they are confirmed.</p><div className="button-row"><a className="button button-ivory" href="https://www.instagram.com/sangamsd">Follow for updates <AtSign size={18} /></a><Link className="text-link light-link" to="/join">Get involved <ArrowRight size={17} /></Link></div></div></section>
+  </Page>
+}
+
+function Board() {
+  return <Page><Intro eyebrow="Executive Board" title="Meet the people behind Sangam." body="Our board plans the events, partnerships, performances, and small details that bring our community together." accent="teal" />
+    <section className="board-section section-pad"><div className="section-heading"><div><p className="eyebrow">Published board portraits</p><h2>2023—2024</h2></div><p>These portraits come from SangamSD’s 2023–2024 board page and are ready to be replaced when the incoming board is installed.</p></div><div className="board-grid">{board.map(({ name, photo }) => <article key={name}><div className="board-portrait"><img src={photo} alt={name} /></div><span>Executive Board</span><h3>{name}</h3></article>)}</div></section>
+  </Page>
+}
+
+function Partners() {
+  return <Page>
+    <section className="partner-hero">
+      <div className="partner-hero-copy reveal">
+        <p className="eyebrow"><span /> Partner with Sangam</p>
+        <h1>Let’s make<br /><em>something</em><br />together.</h1>
+        <p>Choose an established sponsorship tier or create a collaboration around what your organization does best. Either way, we’ll build the right fit together.</p>
+        <div className="button-row"><a className="button" href={partnerGmailDraft} target="_blank" rel="noreferrer">Start a conversation <ArrowRight size={18} /></a><a className="text-link" href="#opportunities">See what’s possible <ChevronRight size={18} /></a></div>
+      </div>
+      <div className="partner-option-visual reveal delay" id="opportunities" aria-label="Two ways to partner with Sangam">
+        <p>Two ways to partner</p>
+        <article>
+          <span>01 · Flexible</span>
+          <h2>Customized<br />collaboration</h2>
+          <p>Build a fundraiser, workshop, pop-up, or other experience around your business.</p>
+          <small>Made together</small>
+        </article>
+        <article>
+          <span>02 · Established</span>
+          <h2>Tiered<br />sponsorship</h2>
+          <p>Choose an existing package with clear visibility and recognition benefits.</p>
+          <small>Ready to review</small>
+        </article>
+        <div className="partner-option-note">Not sure which fits? <strong>Start with a conversation.</strong></div>
+      </div>
+    </section>
+
+    <section className="partners-page section-pad">
+      <div className="partner-archive-heading"><div><p className="eyebrow">With our gratitude</p><h2>Past sponsors</h2></div><p>We’re grateful to the businesses and community members who have helped Sangam bring people together.</p></div>
+      {partners.length ? <div className="partners-ribbon">{partners.map((partner) => <a href={partner.url} key={partner.name}><img src={partner.logo} alt={partner.name} /><span>{partner.name}</span></a>)}</div> : <div className="partners-empty-page"><span>Partner archive</span><strong>Past sponsor recognition is coming soon.</strong><p>Names and logos will be added as our partnership history is gathered.</p></div>}
+    </section>
+
+  </Page>
+}
+
+function Join() {
+  return <Page><section className="join-hero"><div><p className="eyebrow">Join Sangam</p><h1>Come as you are.<br /><em>Leave with community.</em></h1><p>Membership is your invitation to a year of events, friendships, performance, and shared culture.</p></div></section>
+    <section className="join-grid section-pad"><div><p className="eyebrow">Membership means</p><h2>More than a name on a list.</h2></div><div className="benefits"><div><strong>01</strong><span>More ways to take part in Sangam events</span></div><div><strong>02</strong><span>Opportunities to get involved with Culture Show</span></div><div><strong>03</strong><span>Community updates and social gatherings</span></div><div><strong>04</strong><span>A community across UCSD and beyond</span></div></div></section>
+    <section className="signup section-pad"><div><p className="eyebrow light">Ready?</p><h2>Membership opens at the start of the academic year.</h2><p>Until then, follow SangamSD for event announcements and membership updates.</p></div><div className="button-row"><a className="button button-ivory" href="https://www.instagram.com/sangamsd">Follow on Instagram <AtSign size={18} /></a><a className="text-link light-link" href="mailto:hello@sangamsd.com">Ask a question <ArrowRight size={17} /></a></div></section>
+  </Page>
+}
+
+function NotFound() { return <Page><section className="not-found"><p className="eyebrow">404</p><h1>This path missed the circle.</h1><Link className="button" to="/">Return home <ArrowRight size={18} /></Link></section></Page> }
+
+export default function App() {
+  return <><ScrollToTop /><Routes><Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/events" element={<Events />} /><Route path="/culture-show" element={<CultureShow />} /><Route path="/partners" element={<Partners />} /><Route path="/board" element={<Board />} /><Route path="/join" element={<Join />} /><Route path="*" element={<NotFound />} /></Routes></>
+}
