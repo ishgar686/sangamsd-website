@@ -9,6 +9,7 @@ const communityVideo = '/media/sangam-highlights.mp4'
 const partners = []
 
 const partnerGmailDraft = 'https://mail.google.com/mail/?view=cm&fs=1&to=sangamatucsd@gmail.com&su=Partnering%20with%20SangamSD&body=Hi%20SangamSD%2C%0A%0AI%27m%20interested%20in%20exploring%20a%20partnership.%0A%0AOur%20organization%3A%20%0A%0AAn%20idea%20we%27d%20like%20to%20discuss%3A%20%0A%0AThank%20you!'
+const generalGmailDraft = 'https://mail.google.com/mail/?view=cm&fs=1&to=sangamatucsd@gmail.com'
 
 const events = [
   { month: 'FALL', day: '—', title: 'Raas Garba', type: 'Culture', location: 'Date and venue coming soon', color: 'saffron' },
@@ -66,7 +67,7 @@ function Footer() {
   return <footer className="site-footer-compact">
     <div className="footer-bottom">
       <Link className="brand brand-light" to="/"><img className="brand-logo" src="/brand/sangamsd-logo.png" alt="SangamSD" /></Link>
-      <div className="footer-links"><Link to="/about">About</Link><Link to="/events">Events</Link><Link to="/partners">Partners</Link><Link to="/board">Board</Link><a href="mailto:hello@sangamsd.com">Contact</a></div>
+      <div className="footer-links"><Link to="/about">About</Link><Link to="/events">Events</Link><Link to="/partners">Partners</Link><Link to="/board">Board</Link><a href={generalGmailDraft} target="_blank" rel="noreferrer">Contact</a></div>
       <div className="social"><a href="https://www.instagram.com/sangamsd" aria-label="Instagram"><AtSign size={19} /></a><span>© 2026 SangamSD</span></div>
     </div>
   </footer>
@@ -230,7 +231,7 @@ function Partners() {
 
 function Join() {
   return <Page><section className="join-hero-v2">
-      <div className="join-hero-copy"><p className="eyebrow"><span /> Join Sangam</p><h1>There’s more than<br />one way <em>in.</em></h1><p>Start with an event, step onto the Culture Show stage, or simply come say hello. Sangam is something you can enter at your own pace.</p><div className="button-row"><Link className="button" to="/events">Find an event <ArrowRight size={18} /></Link><a className="text-link" href="mailto:hello@sangamsd.com">Ask us anything <ChevronRight size={17} /></a></div></div>
+      <div className="join-hero-copy"><p className="eyebrow"><span /> Join Sangam</p><h1>There’s more than<br />one way <em>in.</em></h1><p>Start with an event, step onto the Culture Show stage, or simply come say hello. Sangam is something you can enter at your own pace.</p><div className="button-row"><Link className="button" to="/events">Find an event <ArrowRight size={18} /></Link><a className="text-link" href={generalGmailDraft} target="_blank" rel="noreferrer">Ask us anything <ChevronRight size={17} /></a></div></div>
       <div className="join-hero-image"><img src="/media/sangam-community.jpg" alt="SangamSD students spending time together" /><span>Come as you are · UC San Diego</span></div>
     </section>
     <section className="join-paths section-pad"><div className="section-heading"><div><p className="eyebrow">Start where you are</p><h2>Find your way<br />into the circle.</h2></div><p>You don’t need to wait for a membership form to begin experiencing Sangam.</p></div><div className="join-path-grid">
@@ -238,7 +239,7 @@ function Join() {
       <article><span>02</span><div><p className="event-tag">Create with us</p><h3>Take part in Culture Show</h3><p>Perform, help build the production, or celebrate the work from the audience.</p></div><Link className="round-link" to="/culture-show" aria-label="Explore Culture Show"><ArrowRight /></Link></article>
       <article><span>03</span><div><p className="event-tag">Stay connected</p><h3>Follow along</h3><p>Event announcements and membership updates are shared first through SangamSD’s Instagram.</p></div><a className="round-link" href="https://www.instagram.com/sangamsd" aria-label="Follow SangamSD on Instagram"><ArrowRight /></a></article>
     </div></section>
-    <section className="signup join-signup section-pad"><div><p className="eyebrow light">Membership</p><h2>Membership opens at the start of the academic year.</h2><p>Until then, follow SangamSD for event announcements and membership updates.</p></div><div className="button-row"><a className="button button-ivory" href="https://www.instagram.com/sangamsd">Follow on Instagram <AtSign size={18} /></a><a className="text-link light-link" href="mailto:hello@sangamsd.com">Ask a question <ArrowRight size={17} /></a></div></section>
+    <section className="signup join-signup section-pad"><div><p className="eyebrow light">Membership</p><h2>Membership opens at the start of the academic year.</h2><p>Until then, follow SangamSD for event announcements and membership updates.</p></div><div className="button-row"><a className="button button-ivory" href="https://www.instagram.com/sangamsd">Follow on Instagram <AtSign size={18} /></a><a className="text-link light-link" href={generalGmailDraft} target="_blank" rel="noreferrer">Ask a question <ArrowRight size={17} /></a></div></section>
   </Page>
 }
 
