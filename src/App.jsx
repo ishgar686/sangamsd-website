@@ -4,6 +4,7 @@ import { ArrowRight, AtSign, ChevronRight, Clock, MapPin, Menu, X } from 'lucide
 
 const heroImage = '/media/sangam-community.jpg'
 const communityVideo = '/media/sangam-highlights.mp4'
+const homeCultureMontage = '/media/home-culture-montage.mp4'
 
 // Add confirmed partner names, logos, and links here as they are received.
 const partners = []
@@ -18,28 +19,41 @@ const events = [
 ]
 
 const pastEvents = [
-  { title: 'Culture Show', type: 'Performance', photo: '/media/culture-show-performance.jpg', description: 'A full-scale celebration shaped by South Asian dance, music, storytelling, and the students who bring it all to the stage.' },
-  { title: 'Raas Garba', type: 'Tradition', photo: '/media/sangam-community.jpg', description: 'An evening of music and movement where experienced dancers and first-timers share the same circle.' },
-  { title: 'Community Gatherings', type: 'Belonging', photo: '/media/about-community.jpg', description: 'The socials, celebrations, and everyday moments that turn new faces across campus into familiar ones.' },
+  { title: 'Culture Show', type: 'Performance', video: '/media/archive-culture-montage.mp4', poster: '/media/archive-culture-montage-poster.jpg', description: 'A full-scale celebration shaped by South Asian dance, music, storytelling, and the students who bring it all to the stage.' },
+  { title: 'Raas Garba', type: 'Tradition', photo: '/media/raas-garba-group.jpg', description: 'An evening of music and movement where experienced dancers and first-timers share the same circle.' },
+  { title: 'Community Gatherings', type: 'Belonging', photo: '/media/community-celebration.jpg', description: 'The socials, celebrations, and everyday moments that turn new faces across campus into familiar ones.' },
 ]
 
 const board = [
-  { name: 'Insiyah Merchant', photo: '/board/insiyah.jpg' },
-  { name: 'Natasha Bisarya', photo: '/board/natasha.jpg' },
-  { name: 'Abirami Krishnan', photo: '/board/abi.jpg' },
-  { name: 'Nishtha Bhakta', photo: '/board/nishtha.jpg' },
-  { name: 'Athira Rajiv', photo: '/board/athira.jpg' },
-  { name: 'Eshan Alomari', photo: '/board/eshan.jpg' },
-  { name: 'Pranav Babarjung', photo: '/board/pranav-b.jpg' },
-  { name: 'Risha Sharma', photo: '/board/risha.jpg' },
-  { name: 'Sukhman Virk', photo: '/board/sukhman.jpg' },
-  { name: 'Pranav Nair', photo: '/board/pranav-n.jpg' },
-  { name: 'Risab Sankar', photo: '/board/risab.jpg' },
-  { name: 'Shivani Kedila', photo: '/board/shivani.jpg' },
-  { name: 'Khushi Kumra', photo: '/board/khushi.jpg' },
-  { name: 'Akshara Kuduvalli', photo: '/board/akshara.jpg' },
-  { name: 'Gautam Gupta', photo: '/board/gautam.jpg' },
-  { name: 'Shreyas Pasumarthi', photo: '/board/shreyas.jpg' },
+  { name: 'Ayushi Shah', role: 'Co-President', photo: '/board/2025-26/ayushi-shah.jpg' },
+  { name: 'Aryan Panchal', role: 'Co-President', photo: '/board/2025-26/aryan-panchal.jpg' },
+  { name: 'Lakshya Rajaram', role: 'Vice President', photo: '/board/2025-26/lakshya-rajaram.jpg' },
+  { name: 'Yohann D Souza', role: 'VP Finance' },
+  { name: 'Sudiksha Ravipati', role: 'Secretary', photo: '/board/2025-26/sudiksha-ravipati.jpg' },
+  { name: 'Varun Sinha', role: 'Technology', photo: '/board/2025-26/varun-sinha.jpg' },
+  { name: 'Karina Shah', role: 'Technology', photo: '/board/2025-26/karina-shah.jpg' },
+  { name: 'Krish Kankure', role: 'Technology', photo: '/board/2025-26/krish-kankure.jpg' },
+  { name: 'Amey Gupta', role: 'Culture Show' },
+  { name: 'Reya Sankar', role: 'Culture Show', photo: '/board/2025-26/reya-sankar.jpg' },
+  { name: 'Anagha Kamath', role: 'Culture Show', photo: '/board/2025-26/anagha-kamath.jpg' },
+  { name: 'Nihira Kalapatapu', role: 'Publicity', photo: '/board/2025-26/nihira-kalapatapu.jpg' },
+  { name: 'Ashmita Beyyala', role: 'Publicity', photo: '/board/2025-26/ashmita-beyyala.jpg' },
+  { name: 'Zaara Sutarwala', role: 'Publicity', photo: '/board/2025-26/zaara-sutarwala.jpg' },
+  { name: 'Vennela Chimakurty', role: 'Social', photo: '/board/2025-26/vennela-chimakurty.jpg' },
+  { name: 'Viraj Chaudhary', role: 'Social', photo: '/board/2025-26/viraj-chaudhary.jpg' },
+  { name: 'Arshia Sohal', role: 'Social', photo: '/board/2025-26/arshia-sohal.jpg' },
+  { name: 'Sonakshi Mohanty', role: 'Social', photo: '/board/2025-26/sonakshi-mohanty.jpg' },
+  { name: 'Aaditya Pillai', role: 'Membership & Outreach', photo: '/board/2025-26/aaditya-pillai.jpg' },
+  { name: 'Aditya Kollipara', role: 'Membership & Outreach' },
+  { name: 'Riddhi Kumar', role: 'Membership & Outreach', photo: '/board/2025-26/riddhi-kumar.jpg' },
+  { name: 'Rahul Sengupta', role: 'Membership & Outreach', photo: '/board/2025-26/rahul-sengupta.jpg' },
+  { name: 'Eshan Alomari', role: 'Finance', photo: '/board/2025-26/eshan-alomari.jpg' },
+  { name: 'Jay Nayyar', role: 'First-Year Representative', photo: '/board/2025-26/jay-nayyar.jpg' },
+  { name: 'Bhumi Chauhan', role: 'First-Year Representative', photo: '/board/2025-26/bhumi-chauhan.jpg' },
+  { name: 'Afsah Khan', role: 'First-Year Representative', photo: '/board/2025-26/afsah-khan.jpg' },
+  { name: 'Tanush Thatavarthi', role: 'First-Year Representative', photo: '/board/2025-26/tanush-thatavarthi.jpg' },
+  { name: 'Sreekar Vemula', role: 'Transfer Representative', photo: '/board/2025-26/sreekar-vemula.jpg' },
+  { name: 'Ria Parikh', role: 'Transfer Representative', photo: '/board/2025-26/ria-parikh.jpg' },
 ]
 
 function ScrollToTop() {
@@ -112,14 +126,14 @@ function Home() {
     <section className="experience section-pad">
       <div className="section-heading"><div><p className="eyebrow">The Sangam experience</p><h2>There’s a place<br />for you in it.</h2></div><p>From your first social to the Culture Show stage, Sangam is something you experience—not just something you join.</p></div>
       <div className="photo-story">
-        <div className="photo-main"><video autoPlay muted loop playsInline poster={heroImage} aria-label="Highlights from SangamSD events"><source src={communityVideo} type="video/mp4" /></video></div>
+        <div className="photo-main"><img src="/media/sangam-experience-group.jpg" alt="SangamSD members smiling together after a community performance" /></div>
         <div className="photo-copy"><span className="big-number">ALL</span><p>backgrounds, experiences, and levels of familiarity are welcome in the circle.</p><Link className="text-link" to="/join">Join the community <ArrowRight size={17} /></Link></div>
         <div className="pattern-card"><div className="rangoli" /><span>Everyone is welcome.</span></div>
       </div>
     </section>
 
     <section className="culture-feature section-pad">
-      <div className="culture-art"><img src="/media/culture-show-performance.jpg" alt="SangamSD dancers performing together on stage" /><span>AN ANNUAL TRADITION</span></div>
+      <div className="culture-art"><video autoPlay muted loop playsInline poster="/media/home-culture-montage-poster.jpg" aria-label="A montage of SangamSD Culture Show performances"><source src={homeCultureMontage} type="video/mp4" /></video><span>AN ANNUAL TRADITION</span></div>
       <div className="culture-copy"><p className="eyebrow light">Our signature production</p><h2>Culture Show</h2><p>One stage. Dozens of performers. A joyful tour through the sounds, movement, and stories of South Asia.</p><Link className="button button-ivory" to="/culture-show">Discover Culture Show <ArrowRight size={18} /></Link></div>
     </section>
 
@@ -138,7 +152,7 @@ function About() {
   return <Page>
     <section className="about-mission-hero">
       <div className="about-mission-copy"><span className="mission-label">Our mission</span><blockquote>To promote South Asian cultural awareness and education at UC San Diego and beyond, while <em>building an inclusive community</em> through culture, service, and shared experiences.</blockquote></div>
-      <div className="about-mission-image"><img src="/media/about-community.jpg" alt="SangamSD students performing together on stage" /><span>Culture in motion · UC San Diego</span></div>
+      <div className="about-mission-image"><img src="/media/about-mission-group.jpg" alt="SangamSD members gathered together on campus" /><span>SangamSD · UC San Diego</span></div>
     </section>
 
     <section className="about-purpose section-pad">
@@ -161,7 +175,7 @@ function About() {
 function Events() {
   return <Page><section className="events-hero section-pad"><div><p className="eyebrow"><span /> Events at Sangam</p><h1>Show up.<br /><em>Join in.</em></h1></div><p>Signature traditions, performances, and low-key gatherings—each one is another way into the community.</p></section>
     <section className="events-list section-pad"><div className="section-heading"><div><p className="eyebrow">Coming up</p><h2>On the horizon</h2></div><p>The 2026–2027 calendar will be added as dates, times, and venues are confirmed.</p></div>{events.map((e) => <article className="event-row" key={e.title}><span className={`event-color ${e.color}`} /><div className="mini-date"><span className="mini-date-label">Date</span><strong>{e.month === 'FALL' ? 'Fall' : 'TBA'}</strong></div><div><span className="event-tag">{e.type}</span><h3>{e.title}</h3></div><p><MapPin size={16} /> {e.location}</p><a className="round-link" href="https://www.instagram.com/sangamsd" aria-label={`Follow for ${e.title} details`}><ArrowRight /></a></article>)}</section>
-    <section className="past-events section-pad"><div className="section-heading"><div><p className="eyebrow">From the archive</p><h2>Past gatherings</h2></div><p>A glimpse at the traditions, performances, and moments of community that Sangam has brought to campus.</p></div><div className="past-events-grid">{pastEvents.map((event, index) => <article className={index === 0 ? 'past-event-featured' : ''} key={event.title}><div className="past-event-image"><img src={event.photo} alt={`${event.title} at SangamSD`} /><span>{String(index + 1).padStart(2, '0')}</span></div><div className="past-event-copy"><span className="event-tag">{event.type}</span><h3>{event.title}</h3><p>{event.description}</p></div></article>)}</div></section>
+    <section className="past-events section-pad"><div className="section-heading"><div><p className="eyebrow">From the archive</p><h2>Past gatherings</h2></div><p>A glimpse at the traditions, performances, and moments of community that Sangam has brought to campus.</p></div><div className="past-events-grid">{pastEvents.map((event, index) => <article className={index === 0 ? 'past-event-featured' : ''} key={event.title}><div className="past-event-image">{event.video ? <video autoPlay muted loop playsInline poster={event.poster} aria-label={`${event.title} performance montage`}><source src={event.video} type="video/mp4" /></video> : <img src={event.photo} alt={`${event.title} at SangamSD`} />}<span>{String(index + 1).padStart(2, '0')}</span></div><div className="past-event-copy"><span className="event-tag">{event.type}</span><h3>{event.title}</h3><p>{event.description}</p></div></article>)}</div></section>
     <section className="event-note section-pad"><a className="instagram-visual" href="https://www.instagram.com/sangamsd" aria-label="Visit SangamSD on Instagram"><img src="/brand/sangamsd-instagram-avatar.jpg" alt="SangamSD Instagram profile logo" /><span>@sangamsd</span></a><div><p className="eyebrow light">Never miss the next one</p><h2>Announcements happen first on Instagram.</h2><a className="button button-ivory" href="https://www.instagram.com/sangamsd">Follow @sangamsd <ArrowRight size={18} /></a></div></section>
   </Page>
 }
@@ -186,11 +200,11 @@ function Board() {
     </div>
     <div className="board-hero-aside" aria-hidden="true">
       <span>Student-led</span>
-      <strong>16</strong>
+      <strong>{board.length}</strong>
       <small>people behind<br />the community</small>
     </div>
   </section>
-    <section className="board-section section-pad"><div className="section-heading"><div><p className="eyebrow">Published board portraits</p><h2>2023—2024</h2></div><p>These portraits come from SangamSD’s 2023–2024 board page and are ready to be replaced when the incoming board is installed.</p></div><div className="board-grid">{board.map(({ name, photo }) => <article key={name}><div className="board-portrait"><img src={photo} alt={name} /></div><span>Executive Board</span><h3>{name}</h3></article>)}</div></section>
+    <section className="board-section section-pad"><div className="section-heading"><div><p className="eyebrow">Current executive board</p><h2>2025—2026</h2></div><p>Meet the students leading Sangam’s events, programs, and community this year.</p></div><div className="board-grid">{board.map(({ name, role, photo }, index) => <article key={name}><div className={`board-portrait portrait-${index % 4 + 1}`}>{photo ? <img src={photo} alt={name} /> : <span className="board-initials" aria-hidden="true">{name.split(' ').map((part) => part[0]).join('')}</span>}</div><span>{role}</span><h3>{name}</h3></article>)}</div></section>
   </Page>
 }
 
@@ -232,7 +246,7 @@ function Partners() {
 function Join() {
   return <Page><section className="join-hero-v2">
       <div className="join-hero-copy"><p className="eyebrow"><span /> Join Sangam</p><h1>There’s more than<br />one way <em>in.</em></h1><p>Start with an event, step onto the Culture Show stage, or simply come say hello. Sangam is something you can enter at your own pace.</p><div className="button-row"><Link className="button" to="/events">Find an event <ArrowRight size={18} /></Link><a className="text-link" href={generalGmailDraft} target="_blank" rel="noreferrer">Ask us anything <ChevronRight size={17} /></a></div></div>
-      <div className="join-hero-image"><img src="/media/sangam-community.jpg" alt="SangamSD students spending time together" /><span>Come as you are · UC San Diego</span></div>
+      <div className="join-hero-image"><img src="/media/join-sangam-board.jpg" alt="SangamSD's board gathered together" /><span>Come as you are · UC San Diego</span></div>
     </section>
     <section className="join-paths section-pad"><div className="section-heading"><div><p className="eyebrow">Start where you are</p><h2>Find your way<br />into the circle.</h2></div><p>You don’t need to wait for a membership form to begin experiencing Sangam.</p></div><div className="join-path-grid">
       <article><span>01</span><div><p className="event-tag">Show up</p><h3>Attend a gathering</h3><p>Come to a signature tradition, performance, or social and meet the community in person.</p></div><Link className="round-link" to="/events" aria-label="Explore upcoming events"><ArrowRight /></Link></article>
