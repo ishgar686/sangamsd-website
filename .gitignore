@@ -4,3 +4,4 @@ dist/
 *.log
 .vercel/
 sangamsd-website-walkthrough.mp4
+.env*
