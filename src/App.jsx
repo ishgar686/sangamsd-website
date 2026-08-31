@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { ArrowRight, AtSign, ChevronRight, Clock, MapPin, Menu, X } from 'lucide-react'
 
@@ -64,13 +64,24 @@ function ScrollToTop() {
 
 function Header() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const { pathname } = useLocation()
   const links = [['About', '/about'], ['Events', '/events'], ['Culture Show', '/culture-show'], ['Partners', '/partners'], ['Board', '/board']]
-  return <header className="site-header">
+
+  useEffect(() => setOpen(false), [pathname])
+  useEffect(() => {
+    const updateHeader = () => setScrolled(window.scrollY > 16)
+    updateHeader()
+    window.addEventListener('scroll', updateHeader, { passive: true })
+    return () => window.removeEventListener('scroll', updateHeader)
+  }, [])
+
+  return <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
     <Link className="brand" to="/" onClick={() => setOpen(false)} aria-label="SangamSD home">
       <img className="brand-logo" src="/brand/sangamsd-logo.png" alt="SangamSD" />
     </Link>
-    <button className="menu-button" onClick={() => setOpen(!open)} aria-label="Toggle navigation">{open ? <X /> : <Menu />}</button>
-    <nav className={open ? 'nav-open' : ''}>
+    <button className="menu-button" onClick={() => setOpen(!open)} aria-label="Toggle navigation" aria-expanded={open} aria-controls="site-navigation">{open ? <X /> : <Menu />}</button>
+    <nav id="site-navigation" className={open ? 'nav-open' : ''}>
       {links.map(([label, href]) => <NavLink key={href} to={href} onClick={() => setOpen(false)}>{label}</NavLink>)}
       <Link className="button button-small" to="/join" onClick={() => setOpen(false)}>Join Sangam <ArrowRight size={16} /></Link>
     </nav>
@@ -87,7 +98,35 @@ function Footer() {
   </footer>
 }
 
-function Page({ children }) { return <><Header /><main>{children}</main><Footer /></> }
+function Page({ children }) {
+  const { pathname } = useLocation()
+  const pageRef = useRef(null)
+
+  useLayoutEffect(() => {
+    const sections = [...pageRef.current.querySelectorAll(':scope > section')]
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    sections.forEach((section) => section.classList.add('section-reveal'))
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      sections.forEach((section) => section.classList.add('is-visible'))
+      return undefined
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 })
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [pathname])
+
+  return <main ref={pageRef} className="page-content">{children}</main>
+}
 
 function Home() {
   return <Page>
@@ -260,5 +299,5 @@ function Join() {
 function NotFound() { return <Page><section className="not-found"><p className="eyebrow">404</p><h1>This path missed the circle.</h1><Link className="button" to="/">Return home <ArrowRight size={18} /></Link></section></Page> }
 
 export default function App() {
-  return <><ScrollToTop /><Routes><Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/events" element={<Events />} /><Route path="/culture-show" element={<CultureShow />} /><Route path="/partners" element={<Partners />} /><Route path="/board" element={<Board />} /><Route path="/join" element={<Join />} /><Route path="*" element={<NotFound />} /></Routes></>
+  return <><ScrollToTop /><Header /><Routes><Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/events" element={<Events />} /><Route path="/culture-show" element={<CultureShow />} /><Route path="/partners" element={<Partners />} /><Route path="/board" element={<Board />} /><Route path="/join" element={<Join />} /><Route path="*" element={<NotFound />} /></Routes><Footer /></>
 }
