@@ -158,7 +158,7 @@ function Home() {
     <section className="partners-home section-pad">
       <div className="partners-copy"><p className="eyebrow light">Our partners</p><h2>Support our<br />celebrations.</h2><p>Sangam’s events and traditions grow through the generosity of businesses, alumni, families, and community supporters.</p><Link className="button button-ivory" to="/partners">Meet our partners <ArrowRight size={18} /></Link></div>
       <div className="partner-wall">
-        {partners.length ? partners.slice(0, 6).map((partner) => <a href={partner.url} key={partner.name}><img src={partner.logo} alt={partner.name} /></a>) : <div className="partner-empty"><span>2026—27 partner roster</span><strong>Coming soon</strong><p>Confirmed names and logos will be recognized here.</p></div>}
+        {partners.length ? partners.slice(0, 6).map((partner) => <a href={partner.url} key={partner.name}><img src={partner.logo} alt={partner.name} /></a>) : <div className="partner-empty"><span>2026—27 partner roster</span><strong>Coming Soon</strong></div>}
       </div>
     </section>
 

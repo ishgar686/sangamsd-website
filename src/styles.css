@@ -331,3 +331,8 @@ body {
     transition: none;
   }
 }
+
+.partner-empty strong {
+  font-size: 30px;
+  margin-bottom: 0;
+}
