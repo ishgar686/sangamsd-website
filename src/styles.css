@@ -336,3 +336,15 @@ body {
   font-size: 30px;
   margin-bottom: 0;
 }
+
+@media (max-width: 600px) {
+  .site-header {
+    justify-content: flex-end;
+  }
+
+  .site-header > .brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
