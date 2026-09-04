@@ -240,3 +240,94 @@ body {
     transform: none !important;
   }
 }
+
+/* Interactive partnership card stack */
+.partner-option-visual {
+  height: 520px;
+}
+
+.partner-option-visual .partner-option-card {
+  cursor: pointer;
+  outline: none;
+  transform-origin: center;
+  transition: transform var(--motion-medium) var(--ease-standard), box-shadow var(--motion-medium) var(--ease-standard), filter var(--motion-medium) ease;
+}
+
+.partner-option-visual .partner-option-card:not(.is-active) {
+  z-index: 1;
+  filter: saturate(.86) brightness(.97);
+}
+
+.partner-option-visual article.partner-option-tiered {
+  bottom: 38px;
+}
+
+.partner-option-visual .partner-option-card.is-active {
+  z-index: 3;
+  box-shadow: 0 26px 58px rgba(23, 34, 77, .22);
+}
+
+.partner-option-visual .partner-option-custom.is-active {
+  transform: translateY(-7px) rotate(-1deg) scale(1.015);
+}
+
+.partner-option-visual .partner-option-tiered.is-active {
+  transform: translateY(-7px) rotate(1deg) scale(1.015);
+}
+
+.partner-option-visual .partner-option-card:focus-visible {
+  box-shadow: 0 0 0 4px var(--ivory), 0 0 0 7px var(--saffron), 0 26px 58px rgba(23, 34, 77, .22);
+}
+
+@media (max-width: 600px) {
+  .partner-option-visual {
+    display: grid;
+    gap: 18px;
+    height: auto;
+    margin-top: 12px;
+    padding-top: 62px;
+    padding-bottom: 50px;
+  }
+
+  .partner-option-visual::before,
+  .partner-option-visual::after {
+    display: none;
+  }
+
+  .partner-option-visual > p {
+    top: 8px;
+  }
+
+  .partner-option-visual .partner-option-card,
+  .partner-option-visual .partner-option-card:first-of-type,
+  .partner-option-visual .partner-option-card:nth-of-type(2),
+  .partner-option-visual .partner-option-card.is-active {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    transform: none;
+  }
+
+  .partner-option-visual .partner-option-card:not(.is-active) {
+    filter: none;
+  }
+
+  .partner-option-note {
+    left: 0;
+    bottom: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-option-visual .partner-option-card {
+    transition: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .board-section.section-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

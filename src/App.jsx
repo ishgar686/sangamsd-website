@@ -248,6 +248,14 @@ function Board() {
 }
 
 function Partners() {
+  const [activePartnerOption, setActivePartnerOption] = useState('tiered')
+
+  const activatePartnerOption = (option, event) => {
+    if (event.type === 'keydown' && event.key !== 'Enter' && event.key !== ' ') return
+    if (event.type === 'keydown') event.preventDefault()
+    setActivePartnerOption(option)
+  }
+
   return <Page>
     <section className="partner-hero">
       <div className="partner-hero-copy reveal">
@@ -258,13 +266,27 @@ function Partners() {
       </div>
       <div className="partner-option-visual reveal delay" id="opportunities" aria-label="Two ways to partner with Sangam">
         <p>Two ways to partner</p>
-        <article>
+        <article
+          className={`partner-option-card partner-option-custom${activePartnerOption === 'custom' ? ' is-active' : ''}`}
+          role="button"
+          tabIndex="0"
+          aria-pressed={activePartnerOption === 'custom'}
+          onClick={(event) => activatePartnerOption('custom', event)}
+          onKeyDown={(event) => activatePartnerOption('custom', event)}
+        >
           <span>01 · Flexible</span>
           <h2>Customized<br />collaboration</h2>
           <p>Build a fundraiser, workshop, pop-up, or other experience around your business.</p>
           <small>Made together</small>
         </article>
-        <article>
+        <article
+          className={`partner-option-card partner-option-tiered${activePartnerOption === 'tiered' ? ' is-active' : ''}`}
+          role="button"
+          tabIndex="0"
+          aria-pressed={activePartnerOption === 'tiered'}
+          onClick={(event) => activatePartnerOption('tiered', event)}
+          onKeyDown={(event) => activatePartnerOption('tiered', event)}
+        >
           <span>02 · Established</span>
           <h2>Tiered<br />sponsorship</h2>
           <p>Choose an existing package with clear visibility and recognition benefits.</p>
