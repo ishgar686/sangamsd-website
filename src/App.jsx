@@ -276,7 +276,7 @@ function Partners() {
 
     <section className="partners-page section-pad">
       <div className="partner-archive-heading"><div><p className="eyebrow">With our gratitude</p><h2>Past sponsors</h2></div><p>We’re grateful to the businesses and community members who have helped Sangam bring people together.</p></div>
-      {partners.length ? <div className="partners-ribbon">{partners.map((partner) => <a href={partner.url} key={partner.name}><img src={partner.logo} alt={partner.name} /><span>{partner.name}</span></a>)}</div> : <div className="partners-empty-page"><span>Partner archive</span><strong>Past sponsor recognition is coming soon.</strong><p>Names and logos will be added as our partnership history is gathered.</p></div>}
+      {partners.length ? <div className="partners-ribbon">{partners.map((partner) => <a href={partner.url} key={partner.name}><img src={partner.logo} alt={partner.name} /><span>{partner.name}</span></a>)}</div> : <div className="partners-empty-page"><span>Partner archive</span><strong>Past sponsor recognition is coming soon.</strong></div>}
     </section>
 
   </Page>
