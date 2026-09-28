@@ -11,9 +11,10 @@ const partners = []
 
 const partnerGmailDraft = 'https://mail.google.com/mail/?view=cm&fs=1&to=sangamatucsd@gmail.com&su=Partnering%20with%20SangamSD&body=Hi%20SangamSD%2C%0A%0AI%27m%20interested%20in%20exploring%20a%20partnership.%0A%0AOur%20organization%3A%20%0A%0AAn%20idea%20we%27d%20like%20to%20discuss%3A%20%0A%0AThank%20you!'
 const generalGmailDraft = 'https://mail.google.com/mail/?view=cm&fs=1&to=sangamatucsd@gmail.com'
+const raasGarbaTicketUrl = 'https://lnk.joinpopp.in/event/zb70nxtmmf'
 
 const events = [
-  { month: 'FALL', day: '—', title: 'Raas Garba', type: 'Culture', location: 'Date and venue coming soon', color: 'saffron' },
+  { month: 'OCT', day: '10', title: 'Raas Garba', type: 'Culture', location: '6–10 PM · PC West Ballroom', color: 'saffron', ticketUrl: raasGarbaTicketUrl },
   { month: 'TBA', day: '—', title: 'Bollywood Bash', type: 'Celebration', location: 'Details coming soon', color: 'rani' },
   { month: 'TBA', day: '—', title: 'Community Socials', type: 'Community', location: 'Across UC San Diego', color: 'teal' },
 ]
@@ -149,9 +150,9 @@ function Home() {
     <section className="next-event section-pad">
       <div className="section-heading"><div><p className="eyebrow">Upcoming events at Sangam</p><h2>Your next favorite<br />memory starts here.</h2></div><Link className="text-link" to="/events">View all events <ArrowRight size={17} /></Link></div>
       <article className="featured-event">
-        <div className="event-date"><span className="date-label">Date</span><strong>Fall</strong><span>Date TBA</span></div>
-        <div className="event-info"><span className="event-tag">Signature tradition</span><h3>Raas Garba</h3><p>Music, movement, and a packed ballroom. Whether you know every step or none at all, there’s room in the circle.</p><div className="event-meta"><span><Clock size={17} /> Time TBA</span><span><MapPin size={17} /> Venue TBA</span></div></div>
-        <Link className="round-link" to="/events" aria-label="Raas Garba details"><ArrowRight /></Link>
+        <div className="event-date"><span className="date-label">Date</span><strong>Oct 10</strong><span>Saturday</span></div>
+        <div className="event-info"><span className="event-tag">Signature tradition</span><h3>Raas Garba</h3><p>Music, movement, and a packed ballroom. Whether you know every step or none at all, there’s room in the circle.</p><div className="event-meta"><span><Clock size={17} /> 6–10 PM</span><span><MapPin size={17} /> PC West Ballroom</span></div></div>
+        <a className="button button-small" href={raasGarbaTicketUrl} target="_blank" rel="noreferrer">Buy tickets <ArrowRight size={18} /></a>
       </article>
     </section>
 
@@ -213,7 +214,7 @@ function About() {
 
 function Events() {
   return <Page><section className="events-hero section-pad"><div><p className="eyebrow"><span /> Events at Sangam</p><h1>Show up.<br /><em>Join in.</em></h1></div><p>Signature traditions, performances, and low-key gatherings—each one is another way into the community.</p></section>
-    <section className="events-list section-pad"><div className="section-heading"><div><p className="eyebrow">Coming up</p><h2>On the horizon</h2></div><p>The 2026–2027 calendar will be added as dates, times, and venues are confirmed.</p></div>{events.map((e) => <article className="event-row" key={e.title}><span className={`event-color ${e.color}`} /><div className="mini-date"><span className="mini-date-label">Date</span><strong>{e.month === 'FALL' ? 'Fall' : 'TBA'}</strong></div><div><span className="event-tag">{e.type}</span><h3>{e.title}</h3></div><p><MapPin size={16} /> {e.location}</p><a className="round-link" href="https://www.instagram.com/sangamsd" aria-label={`Follow for ${e.title} details`}><ArrowRight /></a></article>)}</section>
+    <section className="events-list section-pad"><div className="section-heading"><div><p className="eyebrow">Coming up</p><h2>On the horizon</h2></div><p>The 2026–2027 calendar will be added as dates, times, and venues are confirmed.</p></div>{events.map((e) => <article className="event-row" key={e.title}><span className={`event-color ${e.color}`} /><div className="mini-date"><span className="mini-date-label">Date</span><strong>{e.month === 'TBA' ? 'TBA' : `${e.month} ${e.day}`}</strong></div><div><span className="event-tag">{e.type}</span><h3>{e.title}</h3>{e.ticketUrl && <a className="text-link" href={e.ticketUrl} target="_blank" rel="noreferrer">Buy tickets <ArrowRight size={15} /></a>}</div><p><MapPin size={16} /> {e.location}</p>{e.ticketUrl && <a className="round-link" href={e.ticketUrl} target="_blank" rel="noreferrer" aria-label={`Buy tickets for ${e.title}`}><ArrowRight /></a>}</article>)}</section>
     <section className="past-events section-pad"><div className="section-heading"><div><p className="eyebrow">From the archive</p><h2>Past gatherings</h2></div><p>A glimpse at the traditions, performances, and moments of community that Sangam has brought to campus.</p></div><div className="past-events-grid">{pastEvents.map((event, index) => <article className={index === 0 ? 'past-event-featured' : ''} key={event.title}><div className="past-event-image">{event.video ? <video autoPlay muted loop playsInline poster={event.poster} aria-label={`${event.title} performance montage`}><source src={event.video} type="video/mp4" /></video> : <img src={event.photo} alt={`${event.title} at SangamSD`} />}<span>{String(index + 1).padStart(2, '0')}</span></div><div className="past-event-copy"><span className="event-tag">{event.type}</span><h3>{event.title}</h3><p>{event.description}</p></div></article>)}</div></section>
     <section className="event-note section-pad"><a className="instagram-visual" href="https://www.instagram.com/sangamsd" aria-label="Visit SangamSD on Instagram"><img src="/brand/sangamsd-instagram-avatar.jpg" alt="SangamSD Instagram profile logo" /><span>@sangamsd</span></a><div><p className="eyebrow light">Never miss the next one</p><h2>Announcements happen first on Instagram.</h2><a className="button button-ivory" href="https://www.instagram.com/sangamsd">Follow @sangamsd <ArrowRight size={18} /></a></div></section>
   </Page>
